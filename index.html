@@ -3,400 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Đỗ Quang Đức & Nguyễn Anh Thư · Thiệp cưới</title>
-  <!-- Font Awesome (free icons) -->
+  <title>Đỗ Quang Đức & Nguyễn Anh Thư</title>
+  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    /* ----- reset & base ----- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
-      background: #fcf7f4;  /* nền ấm áp, nhẹ nhàng */
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 1.5rem;
-      margin: 0;
-      line-height: 1.5;
-    }
-
-    /* ----- thiệp chính ----- */
-    .wedding-invitation {
-      max-width: 880px;
-      width: 100%;
-      background: #ffffff;
-      border-radius: 3rem 3rem 2.5rem 2.5rem;
-      box-shadow: 0 25px 50px -8px rgba(0, 0, 0, 0.10), 0 10px 20px -5px rgba(0, 0, 0, 0.04);
-      overflow: hidden;
-      transition: all 0.2s ease;
-      border: 1px solid rgba(220, 190, 180, 0.15);
-    }
-
-    /* ----- phần đầu: hình nền + trạng thái ----- */
-    .invitation-header {
-      background: linear-gradient(145deg, #faeae4 0%, #f7dfd6 100%);
-      padding: 2.8rem 2rem 1.8rem 2rem;
-      text-align: center;
-      position: relative;
-      border-bottom: 1px solid rgba(200, 165, 155, 0.15);
-    }
-
-    /* hiệu ứng hoa lá nhẹ */
-    .invitation-header::after {
-      content: '✦ ✧ ✦';
-      position: absolute;
-      bottom: -6px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #ffffff;
-      padding: 0 1.5rem;
-      font-size: 0.7rem;
-      letter-spacing: 8px;
-      color: #b58a7c;
-      opacity: 0.5;
-    }
-
-    .status-badge {
-      display: inline-block;
-      background: rgba(255, 245, 240, 0.7);
-      backdrop-filter: blur(4px);
-      padding: 0.4rem 1.8rem;
-      border-radius: 60px;
-      font-size: 0.85rem;
-      color: #5f3f39;
-      border: 1px solid rgba(200, 165, 155, 0.2);
-      letter-spacing: 1px;
-      margin-bottom: 1.2rem;
-      font-weight: 400;
-    }
-
-    .status-badge i {
-      color: #c28d7b;
-      margin-right: 6px;
-    }
-
-    .invitation-header h1 {
-      font-size: 2.8rem;
-      font-weight: 300;
-      font-family: 'Georgia', 'Times New Roman', serif;
-      color: #2f1f1c;
-      letter-spacing: 1px;
-      line-height: 1.2;
-    }
-
-    .invitation-header h1 span {
-      font-weight: 400;
-      color: #a77262;
-    }
-
-    .invitation-header .sub-flowers {
-      margin-top: 0.8rem;
-      font-size: 1.2rem;
-      color: #be8d7d;
-      letter-spacing: 6px;
-      opacity: 0.6;
-    }
-
-    /* ----- phần nội dung chính (giống "đang chuẩn bị") ----- */
-    .invitation-body {
-      padding: 2.8rem 2.5rem 3.2rem 2.5rem;
-      background: #ffffff;
-      text-align: center;
-    }
-
-    /* icon trái tim lớn */
-    .heart-icon {
-      font-size: 3.2rem;
-      color: #dba290;
-      margin-bottom: 1.2rem;
-      display: block;
-      opacity: 0.5;
-      letter-spacing: 8px;
-    }
-
-    .invitation-body .main-message {
-      font-size: 1.8rem;
-      font-weight: 300;
-      color: #382b28;
-      font-family: 'Georgia', 'Times New Roman', serif;
-      letter-spacing: 1px;
-      line-height: 1.4;
-      margin-bottom: 0.8rem;
-    }
-
-    .invitation-body .main-message strong {
-      font-weight: 400;
-      color: #a57060;
-    }
-
-    .invitation-body .sub-message {
-      font-size: 1.1rem;
-      color: #6d524b;
-      background: #faf1ed;
-      display: inline-block;
-      padding: 0.4rem 2rem;
-      border-radius: 60px;
-      margin: 1rem 0 0.5rem 0;
-      font-weight: 300;
-      letter-spacing: 1px;
-    }
-
-    .invitation-body .sub-message i {
-      margin: 0 4px;
-      color: #c69483;
-    }
-
-    /* guest name – nổi bật */
-    .guest-name {
-      margin: 1.8rem 0 1.2rem 0;
-      font-size: 2.2rem;
-      font-weight: 300;
-      color: #2f1f1c;
-      background: #fcf6f3;
-      padding: 0.4rem 1.2rem;
-      display: inline-block;
-      border-radius: 80px;
-      border: 1px solid #ecd9d2;
-      box-shadow: 0 2px 8px rgba(160, 120, 110, 0.04);
-      letter-spacing: 2px;
-      font-family: 'Georgia', 'Times New Roman', serif;
-    }
-
-    .guest-name i {
-      color: #bc8878;
-      margin: 0 6px;
-      font-size: 1.2rem;
-      opacity: 0.7;
-    }
-
-    /* dòng trạng thái "đang chuẩn bị" */
-    .preparing-status {
-      margin: 1.8rem 0 1.2rem 0;
-      background: #f9f0ec;
-      padding: 1rem 1.8rem;
-      border-radius: 80px;
-      display: inline-flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      justify-content: center;
-      border: 1px solid #ecd9d2;
-    }
-
-    .preparing-status .label {
-      font-size: 0.9rem;
-      color: #6a4e47;
-      letter-spacing: 2px;
-      font-weight: 300;
-    }
-
-    .preparing-status .label i {
-      margin-right: 6px;
-      color: #bf8d7c;
-    }
-
-    .preparing-status .spinner {
-      display: flex;
-      gap: 6px;
-      align-items: center;
-    }
-
-    .preparing-status .spinner i {
-      color: #b88272;
-      font-size: 0.9rem;
-      animation: pulse 1.6s infinite;
-    }
-
-    .preparing-status .spinner i:nth-child(2) { animation-delay: 0.2s; }
-    .preparing-status .spinner i:nth-child(3) { animation-delay: 0.4s; }
-
-    @keyframes pulse {
-      0% { opacity: 0.2; transform: scale(0.9); }
-      50% { opacity: 1; transform: scale(1.1); }
-      100% { opacity: 0.2; transform: scale(0.9); }
-    }
-
-    /* nút hành động (giữ phong cách) */
-    .action-area {
-      margin-top: 2.8rem;
-      display: flex;
-      justify-content: center;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-    }
-
-    .btn-secondary {
-      background: transparent;
-      border: 1px solid #dcc2ba;
-      padding: 0.6rem 2.2rem;
-      border-radius: 60px;
-      color: #5f4039;
-      font-size: 0.95rem;
-      font-weight: 400;
-      cursor: default;
-      transition: 0.2s;
-      letter-spacing: 0.5px;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .btn-secondary i {
-      color: #b58575;
-    }
-
-    .btn-secondary:hover {
-      background: #f8eeea;
-      border-color: #c7a89c;
-    }
-
-    /* footer nhỏ */
-    .invitation-footer {
-      background: #fcf7f4;
-      padding: 1.2rem 1.5rem;
-      text-align: center;
-      border-top: 1px solid #f0e3de;
-      font-size: 0.75rem;
-      color: #9a7c73;
-      letter-spacing: 1.5px;
-    }
-
-    .invitation-footer i {
-      margin: 0 4px;
-      color: #cfa394;
-      font-size: 0.6rem;
-    }
-
-    /* ----- responsive ----- */
-    @media screen and (max-width: 600px) {
-      .invitation-header h1 {
-        font-size: 2.2rem;
-      }
-      .invitation-body {
-        padding: 2rem 1.5rem;
-      }
-      .invitation-body .main-message {
-        font-size: 1.5rem;
-      }
-      .guest-name {
-        font-size: 1.8rem;
-        padding: 0.2rem 1rem;
-      }
-      .preparing-status {
-        flex-direction: column;
-        gap: 6px;
-        padding: 0.8rem 1.2rem;
-        width: 100%;
-      }
-      .action-area {
-        flex-direction: column;
-        align-items: center;
-      }
-      .btn-secondary {
-        width: 100%;
-        justify-content: center;
-      }
-    }
-
-    @media screen and (max-width: 400px) {
-      .invitation-header {
-        padding: 1.8rem 1rem;
-      }
-      .invitation-header h1 {
-        font-size: 1.8rem;
-      }
-      .invitation-body .main-message {
-        font-size: 1.2rem;
-      }
-    }
-
-    /* điểm nhấn nhẹ cho thiệp */
-    .wedding-invitation:hover {
-      box-shadow: 0 30px 60px -10px rgba(80, 50, 40, 0.12);
-    }
-  </style>
 </head>
 <body>
-
-<div class="wedding-invitation">
-  <!-- header: tên cô dâu chú rể -->
-  <div class="invitation-header">
-    <div class="status-badge">
-      <i class="fas fa-rings"></i> Save the date
+  <header class="site-header">
+    <div class="nav-inner">
+      <a href="#story">Câu chuyện</a>
+      <a href="#schedule">Lịch trình</a>
+      <a href="#hero" class="logo">Đ &amp; T</a>
+      <a href="#album">Album</a>
+      <a href="#wishes">Gửi lời chúc</a>
     </div>
-    <h1>Đỗ Quang Đức <span>&</span> Nguyễn Anh Thư</h1>
-    <div class="sub-flowers">
-      <i class="fas fa-seedling"></i>
-      <i class="fas fa-leaf"></i>
-      <i class="fas fa-seedling"></i>
-    </div>
-  </div>
+  </header>
 
-  <!-- body: thông điệp chính + tên khách + trạng thái -->
-  <div class="invitation-body">
-    <span class="heart-icon">
-      <i class="fas fa-heart"></i>
-      <i class="fas fa-heart" style="font-size:2.4rem;"></i>
-      <i class="fas fa-heart"></i>
-    </span>
-
-    <div class="main-message">
-      <strong>Hạnh phúc</strong> &amp; <strong>yêu thương</strong>
-    </div>
-    <div class="sub-message">
-      <i class="fas fa-feather"></i>  cùng gia đình và bạn bè  <i class="fas fa-feather"></i>
-    </div>
-
-    <!-- Tên khách (lấy từ URL: guest=Bạn Ái) -->
-    <div class="guest-name">
-      <i class="fas fa-user-astronaut"></i> Bạn Ái <i class="fas fa-user-astronaut"></i>
-    </div>
-
-    <!-- trạng thái "đang chuẩn bị thiệp" giống web mẫu -->
-    <div class="preparing-status">
-      <span class="label">
-        <i class="fas fa-envelope"></i> Đang chuẩn bị thiệp mời cho bạn...
-      </span>
-      <span class="spinner">
-        <i class="fas fa-circle"></i>
-        <i class="fas fa-circle"></i>
-        <i class="fas fa-circle"></i>
-      </span>
-    </div>
-
-    <!-- thông tin bổ sung (giữ phong cách) -->
-    <div style="margin: 0.8rem 0 0.2rem; font-size: 0.85rem; color: #886b63; letter-spacing: 0.5px;">
-      <i class="far fa-calendar-alt" style="margin-right: 6px;"></i> 
-      12 · 06 · 2026
-      <span style="margin: 0 12px; opacity:0.3;">|</span>
-      <i class="fas fa-location-dot" style="margin-right: 6px;"></i> 
-      The Willow Estate
-    </div>
-
-    <!-- nút hành động (mang tính trang trí) -->
-    <div class="action-area">
-      <div class="btn-secondary">
-        <i class="fas fa-check-circle"></i> Xác nhận tham dự
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-label">Trân trọng kính mời</p>
+      <h1>Đỗ Quang Đức <span>&amp;</span> Nguyễn Anh Thư</h1>
+      <p class="hero-guest" id="heroGuest">Bạn Ái</p>
+      <div class="hero-meta">
+        <span>Nhà gái • 04.07.2026</span>
+        <span>Nhà trai • 11.07.2026</span>
       </div>
-      <div class="btn-secondary">
-        <i class="fas fa-gift"></i> Gửi lời chúc
-      </div>
+      <a href="#wishes" class="btn btn-primary">Gửi lời chúc</a>
     </div>
-  </div>
+  </section>
 
-  <!-- footer nhỏ -->
-  <div class="invitation-footer">
-    <i class="fas fa-heart"></i> 
-    happy wedding · Đỗ Quang Đức & Nguyễn Anh Thư 
-    <i class="fas fa-heart"></i>
-  </div>
-</div>
+  <main>
+    <section class="section" id="story">
+      <div class="section-head">
+        <p>Câu chuyện</p>
+        <h2>Hành trình yêu thương</h2>
+      </div>
+      <p class="section-text">Bắt đầu từ một buổi chiều bình yên, chúng mình đã nắm tay nhau và cùng tạo nên những kỷ niệm đong đầy. Chúng mình mong được đón bạn đến chung vui và viết tiếp chương mới.</p>
+    </section>
 
+    <section class="section section-schedule" id="schedule">
+      <div class="section-head">
+        <p>Lịch trình</p>
+        <h2>Ngày vui hai nhà</h2>
+      </div>
+      <div class="cards-grid">
+        <article class="event-card">
+          <h3>Nhà gái</h3>
+          <p class="event-date">04.07.2026</p>
+          <p>Địa điểm: Nhà gái</p>
+        </article>
+        <article class="event-card">
+          <h3>Nhà trai</h3>
+          <p class="event-date">11.07.2026</p>
+          <p>Địa điểm: Nhà trai</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-album" id="album">
+      <div class="section-head">
+        <p>Album</p>
+        <h2>Khoảnh khắc lãng mạn</h2>
+      </div>
+      <div class="photo-grid">
+        <div class="photo photo-1"></div>
+        <div class="photo photo-2"></div>
+        <div class="photo photo-3"></div>
+      </div>
+    </section>
+
+    <section class="section section-wishes" id="wishes">
+      <div class="section-head">
+        <p>Gửi lời chúc</p>
+        <h2>Chia sẻ yêu thương</h2>
+      </div>
+      <form class="wish-form">
+        <input type="text" id="guest" placeholder="Tên bạn" />
+        <textarea id="message" rows="5" placeholder="Lời chúc dành cho hai bạn..."></textarea>
+        <button class="btn btn-primary" type="submit">Gửi lời chúc</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Đỗ Quang Đức &amp; Nguyễn Anh Thư • 2026</p>
+  </footer>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const guest = params.get('guest');
+    const heroGuest = document.getElementById('heroGuest');
+    if (guest && heroGuest) {
+      heroGuest.textContent = decodeURIComponent(guest);
+    }
+  </script>
 </body>
 </html>
