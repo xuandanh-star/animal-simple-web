@@ -1,106 +1,468 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cat Pet Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Wedding · UI design</title>
+  <!-- Font Awesome Icons (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ----- reset & base ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+      background: #fdf8f5;  /* soft warm white */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 1.5rem;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* main card – wedding UI */
+    .wedding-card {
+      max-width: 1200px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 2.5rem;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08), 0 15px 30px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    /* ----- layout grid ----- */
+    .wedding-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    /* left column – image + overlay */
+    .wedding-hero {
+      position: relative;
+      background: #fceae5;
+      min-height: 500px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 2.5rem 2rem;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400"><circle cx="200" cy="200" r="160" fill="%23f7d9d0" opacity="0.3"/><circle cx="140" cy="140" r="80" fill="%23f2c9bd" opacity="0.2"/><circle cx="280" cy="260" r="100" fill="%23f2c9bd" opacity="0.2"/><path d="M120 280 Q 200 340 300 280 Q 250 380 150 360 Z" fill="%23f0bfb0" opacity="0.2"/></svg>');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: overlay;
+      border-radius: 2.5rem 0 0 2.5rem;
+      overflow: hidden;
+    }
+
+    /* decorative hand-drawn style overlay */
+    .wedding-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 40%, rgba(255, 245, 240, 0.5) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #3e2c2b;
+      width: 100%;
+    }
+
+    .hero-content .flower-icon {
+      font-size: 2.8rem;
+      color: #d48c7c;
+      margin-bottom: 0.5rem;
+      display: block;
+      letter-spacing: 8px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.8rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #3e2c2b;
+      line-height: 1.1;
+      text-shadow: 0 2px 10px rgba(255, 235, 220, 0.5);
+    }
+
+    .hero-content .sub-title {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: #5f403b;
+      border-top: 1px solid rgba(180, 130, 120, 0.3);
+      border-bottom: 1px solid rgba(180, 130, 120, 0.3);
+      display: inline-block;
+      padding: 0.4rem 1.6rem;
+      margin-top: 0.8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      backdrop-filter: blur(2px);
+      background: rgba(255, 245, 240, 0.2);
+      border-radius: 40px;
+    }
+
+    .hero-content .date-badge {
+      margin-top: 1.8rem;
+      font-size: 1.1rem;
+      background: rgba(255, 240, 235, 0.7);
+      backdrop-filter: blur(4px);
+      padding: 0.4rem 1.8rem;
+      border-radius: 40px;
+      display: inline-block;
+      color: #4d3532;
+      font-weight: 400;
+      border: 1px solid rgba(200, 160, 150, 0.2);
+    }
+
+    .hero-content .date-badge i {
+      margin-right: 8px;
+      color: #b87a6b;
+    }
+
+    /* ----- right column – details ----- */
+    .wedding-details {
+      padding: 3rem 2.8rem;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: 0 2.5rem 2.5rem 0;
+    }
+
+    .details-header {
+      margin-bottom: 2.2rem;
+    }
+
+    .details-header .tag {
+      display: inline-block;
+      background: #f4e3de;
+      color: #7a554c;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+
+    .details-header h2 {
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: #2f201e;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      letter-spacing: 1px;
+    }
+
+    .details-header h2 span {
+      font-weight: 400;
+      color: #b07a6b;
+    }
+
+    /* info grid */
+    .info-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 1.8rem 0 2.5rem 0;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      border-bottom: 1px solid #f3e7e3;
+      padding-bottom: 1.2rem;
+      transition: all 0.1s;
+    }
+
+    .info-item:last-of-type {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .info-icon {
+      width: 44px;
+      height: 44px;
+      background: #f8edea;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #a07264;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      transition: 0.2s;
+    }
+
+    .info-item:hover .info-icon {
+      background: #ecd9d2;
+      color: #7a554a;
+    }
+
+    .info-text {
+      flex: 1;
+    }
+
+    .info-text .label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #a58a82;
+      font-weight: 600;
+    }
+
+    .info-text .value {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: #332220;
+      margin-top: 0.1rem;
+    }
+
+    .info-text .value i {
+      margin-right: 6px;
+      color: #b88272;
+      font-size: 0.9rem;
+    }
+
+    /* rsvp button */
+    .rsvp-area {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .rsvp-btn {
+      background: #2f201e;
+      color: #fcf3ef;
+      border: none;
+      padding: 0.8rem 2.8rem;
+      border-radius: 60px;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: 0.2s ease;
+      box-shadow: 0 4px 10px rgba(40, 30, 28, 0.08);
+    }
+
+    .rsvp-btn i {
+      font-size: 1rem;
+      transition: 0.2s;
+    }
+
+    .rsvp-btn:hover {
+      background: #4d3532;
+      transform: scale(1.01);
+      box-shadow: 0 8px 20px rgba(70, 50, 45, 0.15);
+    }
+
+    .rsvp-btn:hover i {
+      transform: translateX(4px);
+    }
+
+    .rsvp-note {
+      font-size: 0.8rem;
+      color: #7f645c;
+      background: #f7efec;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .rsvp-note i {
+      color: #bb8b7b;
+    }
+
+    /* ----- responsive (mobile) ----- */
+    @media screen and (max-width: 850px) {
+      .wedding-grid {
+        grid-template-columns: 1fr;
+        border-radius: 2.5rem;
+      }
+      .wedding-hero {
+        border-radius: 2.5rem 2.5rem 0 0;
+        min-height: 320px;
+        padding: 2rem 1.5rem;
+      }
+      .wedding-details {
+        border-radius: 0 0 2.5rem 2.5rem;
+        padding: 2rem 1.8rem;
+      }
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+      .details-header h2 {
+        font-size: 1.8rem;
+      }
+      .rsvp-area {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .rsvp-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media screen and (max-width: 450px) {
+      .wedding-card {
+        border-radius: 1.8rem;
+      }
+      .wedding-hero {
+        border-radius: 1.8rem 1.8rem 0 0;
+        min-height: 240px;
+        padding: 1.5rem 1rem;
+      }
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .wedding-details {
+        padding: 1.8rem 1.2rem;
+      }
+      .info-item {
+        gap: 0.8rem;
+      }
+      .info-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+      }
+      .info-text .value {
+        font-size: 1rem;
+      }
+    }
+
+    /* small extras – happiness */
+    .wedding-hero .floating-heart {
+      position: absolute;
+      bottom: 20px;
+      right: 25px;
+      font-size: 1.8rem;
+      opacity: 0.2;
+      color: #b47b6b;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .wedding-hero .floating-heart i {
+      margin: 0 2px;
+    }
+
+    /* subtle animation */
+    .hero-content h1 {
+      transition: 0.2s;
+    }
+    .wedding-card:hover .hero-content h1 {
+      letter-spacing: 3px;
+    }
+
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Cat Pet Dashboard</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="#cats">Available Cats</a></li>
-            <li><a href="#promotions">Promotions</a></li>
-            <li><a href="#services">Services</a></li>
-        </ul>
-    </nav>
-    <main>
-        <section id="cats">
-            <h2>Available Cats</h2>
-            <div class="cat-grid">
-                <div class="cat-card">
-                    <img src="cat1.jpg" alt="British Shorthair Bicolor">
-                    <h3>British Shorthair Bicolor</h3>
-                    <p class="price">10,000,000 VND</p>
-                    <p class="discount">12,000,000 VND</p>
-                    <p>Out of Stock</p>
-                </div>
-                <div class="cat-card">
-                    <img src="cat2.jpg" alt="Munchkin Bicolor">
-                    <h3>Munchkin Bicolor</h3>
-                    <p class="price">13,000,000 VND</p>
-                    <p>Available</p>
-                </div>
-                <div class="cat-card">
-                    <img src="cat3.jpg" alt="Ragdoll">
-                    <h3>Ragdoll</h3>
-                    <p class="price">20,000,000 VND</p>
-                    <p>Available</p>
-                </div>
-                <div class="cat-card">
-                    <img src="cat4.jpg" alt="British Shorthair Silver">
-                    <h3>British Shorthair Silver</h3>
-                    <p class="price">15,000,000 VND</p>
-                    <p>Out of Stock</p>
-                </div>
-                <div class="cat-card">
-                    <img src="cat5.jpg" alt="Beautiful Cat 1">
-                    <h3>Beautiful Cat 1</h3>
-                    <p class="price">12,000,000 VND</p>
-                    <p>Available</p>
-                </div>
-                <div class="cat-card">
-                    <img src="cat6.jpg" alt="Beautiful Cat 2">
-                    <h3>Beautiful Cat 2</h3>
-                    <p class="price">14,000,000 VND</p>
-                    <p>Available</p>
-                </div>
-                <div class="cat-card">
-                    <img src="cat7.jpg" alt="Beautiful Cat 3">
-                    <h3>Beautiful Cat 3</h3>
-                    <p class="price">11,000,000 VND</p>
-                    <p>Available</p>
-                </div>
-                <div class="cat-card">
-                    <img src="cat8.jpg" alt="Beautiful Cat 4">
-                    <h3>Beautiful Cat 4</h3>
-                    <p class="price">16,000,000 VND</p>
-                    <p>Available</p>
-                </div>
-                <div class="cat-card">
-                    <img src="cat9.jpg" alt="Beautiful Cat 5">
-                    <h3>Beautiful Cat 5</h3>
-                    <p class="price">13,500,000 VND</p>
-                    <p>Available</p>
-                </div>
-                <div class="cat-card">
-                    <img src="cat10.jpg" alt="Beautiful Cat 6">
-                    <h3>Beautiful Cat 6</h3>
-                    <p class="price">10,500,000 VND</p>
-                    <p>Available</p>
-                </div>
-            </div>
-        </section>
-        <section id="promotions">
-            <h2>Promotions</h2>
-            <p>10% off for orders over 1 product. Free shipping for orders above 500k VND.</p>
-            <p>Shock sale: Up to 35% off all products.</p>
-        </section>
-        <section id="services">
-            <h2>Services</h2>
-            <ul>
-                <li>Grooming & Spa</li>
-                <li>Pet Hotel</li>
-                <li>Food and Accessories</li>
-            </ul>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 Cat House. <a href="https://www.facebook.com/share/r/1B6YQLf29b/" target="_blank">Follow us on Facebook</a> | Powered by Simple Web.</p>
-    </footer>
+
+<div class="wedding-card">
+  <div class="wedding-grid">
+    <!-- left: hero image + floral mood -->
+    <div class="wedding-hero">
+      <div class="floating-heart">
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-heart" style="font-size:1.2rem;"></i>
+      </div>
+      <div class="hero-content">
+        <span class="flower-icon">
+          <i class="fas fa-seedling"></i>
+          <i class="fas fa-leaf" style="margin-left: 4px;"></i>
+        </span>
+        <h1>Happily<br>Ever After</h1>
+        <div class="sub-title">save the date</div>
+        <div class="date-badge">
+          <i class="fas fa-calendar-alt"></i> 12 . 06 . 2026
+        </div>
+        <!-- tiny detail -->
+        <div style="margin-top: 1.2rem; font-size: 0.7rem; letter-spacing: 2px; opacity: 0.6; color: #604b45;">
+          <i class="fas fa-rings" style="margin-right: 4px;"></i> love · laughter · forever
+        </div>
+      </div>
+    </div>
+
+    <!-- right: details & UI -->
+    <div class="wedding-details">
+      <div class="details-header">
+        <div class="tag"><i class="fas fa-sparkles" style="margin-right: 5px;"></i> wedding 2026</div>
+        <h2>Emma &amp; <span>James</span></h2>
+        <p style="color: #7c615a; margin-top: 0.3rem; font-weight: 300; letter-spacing: 0.3px;">
+          together with their families
+        </p>
+      </div>
+
+      <!-- info list -->
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-calendar-day"></i></div>
+          <div class="info-text">
+            <div class="label">date &amp; time</div>
+            <div class="value"><i class="far fa-clock"></i> Saturday, June 12 · 4:30 PM</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-location-dot"></i></div>
+          <div class="info-text">
+            <div class="label">ceremony &amp; reception</div>
+            <div class="value"><i class="fas fa-tree"></i> The Willow Estate · Lakeview</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-dress"></i></div>
+          <div class="info-text">
+            <div class="label">dress code</div>
+            <div class="value"><i class="fas fa-suitcase"></i> Garden formal · pastel tones</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- rsvp & extra -->
+      <div class="rsvp-area">
+        <button class="rsvp-btn">
+          <span>RSVP now</span>
+          <i class="fas fa-arrow-right"></i>
+        </button>
+        <span class="rsvp-note">
+          <i class="fas fa-check-circle"></i> 126 guests · 18 pending
+        </span>
+      </div>
+
+      <!-- small extra touch: happy wedding -->
+      <div style="margin-top: 2.2rem; display: flex; justify-content: flex-end; border-top: 1px solid #f3e7e3; padding-top: 1rem;">
+        <span style="font-size: 0.75rem; color: #b39388; letter-spacing: 1.5px; display: flex; align-items: center; gap: 6px;">
+          <i class="fas fa-heart" style="color: #d48c7c;"></i>
+          happy wedding
+          <i class="fas fa-heart" style="color: #d48c7c;"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- (optional) tiny extra: no js needed, pure ui design -->
 </body>
 </html>
