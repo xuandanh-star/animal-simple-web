@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Wedding · UI design</title>
-  <!-- Font Awesome Icons (free) -->
+  <title>Đỗ Quang Đức & Nguyễn Anh Thư · Thiệp cưới</title>
+  <!-- Font Awesome (free icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     /* ----- reset & base ----- */
@@ -16,453 +16,387 @@
 
     body {
       font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
-      background: #fdf8f5;  /* soft warm white */
+      background: #fcf7f4;  /* nền ấm áp, nhẹ nhàng */
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
       padding: 1.5rem;
       margin: 0;
       line-height: 1.5;
     }
 
-    /* main card – wedding UI */
-    .wedding-card {
-      max-width: 1200px;
+    /* ----- thiệp chính ----- */
+    .wedding-invitation {
+      max-width: 880px;
       width: 100%;
       background: #ffffff;
-      border-radius: 2.5rem;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08), 0 15px 30px rgba(0, 0, 0, 0.05);
+      border-radius: 3rem 3rem 2.5rem 2.5rem;
+      box-shadow: 0 25px 50px -8px rgba(0, 0, 0, 0.10), 0 10px 20px -5px rgba(0, 0, 0, 0.04);
       overflow: hidden;
       transition: all 0.2s ease;
+      border: 1px solid rgba(220, 190, 180, 0.15);
     }
 
-    /* ----- layout grid ----- */
-    .wedding-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-    }
-
-    /* left column – image + overlay */
-    .wedding-hero {
-      position: relative;
-      background: #fceae5;
-      min-height: 500px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      padding: 2.5rem 2rem;
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400"><circle cx="200" cy="200" r="160" fill="%23f7d9d0" opacity="0.3"/><circle cx="140" cy="140" r="80" fill="%23f2c9bd" opacity="0.2"/><circle cx="280" cy="260" r="100" fill="%23f2c9bd" opacity="0.2"/><path d="M120 280 Q 200 340 300 280 Q 250 380 150 360 Z" fill="%23f0bfb0" opacity="0.2"/></svg>');
-      background-size: cover;
-      background-position: center;
-      background-blend-mode: overlay;
-      border-radius: 2.5rem 0 0 2.5rem;
-      overflow: hidden;
-    }
-
-    /* decorative hand-drawn style overlay */
-    .wedding-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 30% 40%, rgba(255, 245, 240, 0.5) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
+    /* ----- phần đầu: hình nền + trạng thái ----- */
+    .invitation-header {
+      background: linear-gradient(145deg, #faeae4 0%, #f7dfd6 100%);
+      padding: 2.8rem 2rem 1.8rem 2rem;
       text-align: center;
-      color: #3e2c2b;
-      width: 100%;
+      position: relative;
+      border-bottom: 1px solid rgba(200, 165, 155, 0.15);
     }
 
-    .hero-content .flower-icon {
+    /* hiệu ứng hoa lá nhẹ */
+    .invitation-header::after {
+      content: '✦ ✧ ✦';
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ffffff;
+      padding: 0 1.5rem;
+      font-size: 0.7rem;
+      letter-spacing: 8px;
+      color: #b58a7c;
+      opacity: 0.5;
+    }
+
+    .status-badge {
+      display: inline-block;
+      background: rgba(255, 245, 240, 0.7);
+      backdrop-filter: blur(4px);
+      padding: 0.4rem 1.8rem;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      color: #5f3f39;
+      border: 1px solid rgba(200, 165, 155, 0.2);
+      letter-spacing: 1px;
+      margin-bottom: 1.2rem;
+      font-weight: 400;
+    }
+
+    .status-badge i {
+      color: #c28d7b;
+      margin-right: 6px;
+    }
+
+    .invitation-header h1 {
       font-size: 2.8rem;
-      color: #d48c7c;
-      margin-bottom: 0.5rem;
+      font-weight: 300;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #2f1f1c;
+      letter-spacing: 1px;
+      line-height: 1.2;
+    }
+
+    .invitation-header h1 span {
+      font-weight: 400;
+      color: #a77262;
+    }
+
+    .invitation-header .sub-flowers {
+      margin-top: 0.8rem;
+      font-size: 1.2rem;
+      color: #be8d7d;
+      letter-spacing: 6px;
+      opacity: 0.6;
+    }
+
+    /* ----- phần nội dung chính (giống "đang chuẩn bị") ----- */
+    .invitation-body {
+      padding: 2.8rem 2.5rem 3.2rem 2.5rem;
+      background: #ffffff;
+      text-align: center;
+    }
+
+    /* icon trái tim lớn */
+    .heart-icon {
+      font-size: 3.2rem;
+      color: #dba290;
+      margin-bottom: 1.2rem;
       display: block;
+      opacity: 0.5;
       letter-spacing: 8px;
     }
 
-    .hero-content h1 {
-      font-size: 3.8rem;
-      font-weight: 400;
-      letter-spacing: 2px;
-      font-family: 'Georgia', 'Times New Roman', serif;
-      color: #3e2c2b;
-      line-height: 1.1;
-      text-shadow: 0 2px 10px rgba(255, 235, 220, 0.5);
-    }
-
-    .hero-content .sub-title {
-      font-size: 1.2rem;
+    .invitation-body .main-message {
+      font-size: 1.8rem;
       font-weight: 300;
-      color: #5f403b;
-      border-top: 1px solid rgba(180, 130, 120, 0.3);
-      border-bottom: 1px solid rgba(180, 130, 120, 0.3);
-      display: inline-block;
-      padding: 0.4rem 1.6rem;
-      margin-top: 0.8rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-      backdrop-filter: blur(2px);
-      background: rgba(255, 245, 240, 0.2);
-      border-radius: 40px;
-    }
-
-    .hero-content .date-badge {
-      margin-top: 1.8rem;
-      font-size: 1.1rem;
-      background: rgba(255, 240, 235, 0.7);
-      backdrop-filter: blur(4px);
-      padding: 0.4rem 1.8rem;
-      border-radius: 40px;
-      display: inline-block;
-      color: #4d3532;
-      font-weight: 400;
-      border: 1px solid rgba(200, 160, 150, 0.2);
-    }
-
-    .hero-content .date-badge i {
-      margin-right: 8px;
-      color: #b87a6b;
-    }
-
-    /* ----- right column – details ----- */
-    .wedding-details {
-      padding: 3rem 2.8rem;
-      background: #ffffff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border-radius: 0 2.5rem 2.5rem 0;
-    }
-
-    .details-header {
-      margin-bottom: 2.2rem;
-    }
-
-    .details-header .tag {
-      display: inline-block;
-      background: #f4e3de;
-      color: #7a554c;
-      font-size: 0.7rem;
-      letter-spacing: 2px;
-      padding: 0.2rem 1rem;
-      border-radius: 30px;
-      text-transform: uppercase;
-      font-weight: 600;
+      color: #382b28;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      letter-spacing: 1px;
+      line-height: 1.4;
       margin-bottom: 0.8rem;
     }
 
-    .details-header h2 {
+    .invitation-body .main-message strong {
+      font-weight: 400;
+      color: #a57060;
+    }
+
+    .invitation-body .sub-message {
+      font-size: 1.1rem;
+      color: #6d524b;
+      background: #faf1ed;
+      display: inline-block;
+      padding: 0.4rem 2rem;
+      border-radius: 60px;
+      margin: 1rem 0 0.5rem 0;
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+
+    .invitation-body .sub-message i {
+      margin: 0 4px;
+      color: #c69483;
+    }
+
+    /* guest name – nổi bật */
+    .guest-name {
+      margin: 1.8rem 0 1.2rem 0;
       font-size: 2.2rem;
       font-weight: 300;
-      color: #2f201e;
+      color: #2f1f1c;
+      background: #fcf6f3;
+      padding: 0.4rem 1.2rem;
+      display: inline-block;
+      border-radius: 80px;
+      border: 1px solid #ecd9d2;
+      box-shadow: 0 2px 8px rgba(160, 120, 110, 0.04);
+      letter-spacing: 2px;
       font-family: 'Georgia', 'Times New Roman', serif;
-      letter-spacing: 1px;
     }
 
-    .details-header h2 span {
-      font-weight: 400;
-      color: #b07a6b;
-    }
-
-    /* info grid */
-    .info-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      margin: 1.8rem 0 2.5rem 0;
-    }
-
-    .info-item {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-      border-bottom: 1px solid #f3e7e3;
-      padding-bottom: 1.2rem;
-      transition: all 0.1s;
-    }
-
-    .info-item:last-of-type {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .info-icon {
-      width: 44px;
-      height: 44px;
-      background: #f8edea;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #a07264;
+    .guest-name i {
+      color: #bc8878;
+      margin: 0 6px;
       font-size: 1.2rem;
-      flex-shrink: 0;
-      transition: 0.2s;
+      opacity: 0.7;
     }
 
-    .info-item:hover .info-icon {
-      background: #ecd9d2;
-      color: #7a554a;
+    /* dòng trạng thái "đang chuẩn bị" */
+    .preparing-status {
+      margin: 1.8rem 0 1.2rem 0;
+      background: #f9f0ec;
+      padding: 1rem 1.8rem;
+      border-radius: 80px;
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      border: 1px solid #ecd9d2;
     }
 
-    .info-text {
-      flex: 1;
+    .preparing-status .label {
+      font-size: 0.9rem;
+      color: #6a4e47;
+      letter-spacing: 2px;
+      font-weight: 300;
     }
 
-    .info-text .label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #a58a82;
-      font-weight: 600;
-    }
-
-    .info-text .value {
-      font-size: 1.15rem;
-      font-weight: 500;
-      color: #332220;
-      margin-top: 0.1rem;
-    }
-
-    .info-text .value i {
+    .preparing-status .label i {
       margin-right: 6px;
+      color: #bf8d7c;
+    }
+
+    .preparing-status .spinner {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .preparing-status .spinner i {
       color: #b88272;
       font-size: 0.9rem;
+      animation: pulse 1.6s infinite;
     }
 
-    /* rsvp button */
-    .rsvp-area {
+    .preparing-status .spinner i:nth-child(2) { animation-delay: 0.2s; }
+    .preparing-status .spinner i:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes pulse {
+      0% { opacity: 0.2; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.1); }
+      100% { opacity: 0.2; transform: scale(0.9); }
+    }
+
+    /* nút hành động (giữ phong cách) */
+    .action-area {
+      margin-top: 2.8rem;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
+      justify-content: center;
       gap: 1.2rem;
-      margin-top: 0.5rem;
+      flex-wrap: wrap;
     }
 
-    .rsvp-btn {
-      background: #2f201e;
-      color: #fcf3ef;
-      border: none;
-      padding: 0.8rem 2.8rem;
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid #dcc2ba;
+      padding: 0.6rem 2.2rem;
       border-radius: 60px;
-      font-size: 1rem;
-      font-weight: 500;
-      letter-spacing: 1px;
+      color: #5f4039;
+      font-size: 0.95rem;
+      font-weight: 400;
+      cursor: default;
+      transition: 0.2s;
+      letter-spacing: 0.5px;
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      cursor: pointer;
-      transition: 0.2s ease;
-      box-shadow: 0 4px 10px rgba(40, 30, 28, 0.08);
     }
 
-    .rsvp-btn i {
-      font-size: 1rem;
-      transition: 0.2s;
+    .btn-secondary i {
+      color: #b58575;
     }
 
-    .rsvp-btn:hover {
-      background: #4d3532;
-      transform: scale(1.01);
-      box-shadow: 0 8px 20px rgba(70, 50, 45, 0.15);
+    .btn-secondary:hover {
+      background: #f8eeea;
+      border-color: #c7a89c;
     }
 
-    .rsvp-btn:hover i {
-      transform: translateX(4px);
+    /* footer nhỏ */
+    .invitation-footer {
+      background: #fcf7f4;
+      padding: 1.2rem 1.5rem;
+      text-align: center;
+      border-top: 1px solid #f0e3de;
+      font-size: 0.75rem;
+      color: #9a7c73;
+      letter-spacing: 1.5px;
     }
 
-    .rsvp-note {
-      font-size: 0.8rem;
-      color: #7f645c;
-      background: #f7efec;
-      padding: 0.3rem 1.2rem;
-      border-radius: 40px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+    .invitation-footer i {
+      margin: 0 4px;
+      color: #cfa394;
+      font-size: 0.6rem;
     }
 
-    .rsvp-note i {
-      color: #bb8b7b;
-    }
-
-    /* ----- responsive (mobile) ----- */
-    @media screen and (max-width: 850px) {
-      .wedding-grid {
-        grid-template-columns: 1fr;
-        border-radius: 2.5rem;
+    /* ----- responsive ----- */
+    @media screen and (max-width: 600px) {
+      .invitation-header h1 {
+        font-size: 2.2rem;
       }
-      .wedding-hero {
-        border-radius: 2.5rem 2.5rem 0 0;
-        min-height: 320px;
+      .invitation-body {
         padding: 2rem 1.5rem;
       }
-      .wedding-details {
-        border-radius: 0 0 2.5rem 2.5rem;
-        padding: 2rem 1.8rem;
+      .invitation-body .main-message {
+        font-size: 1.5rem;
       }
-      .hero-content h1 {
-        font-size: 2.8rem;
-      }
-      .details-header h2 {
+      .guest-name {
         font-size: 1.8rem;
+        padding: 0.2rem 1rem;
       }
-      .rsvp-area {
+      .preparing-status {
         flex-direction: column;
-        align-items: flex-start;
+        gap: 6px;
+        padding: 0.8rem 1.2rem;
+        width: 100%;
       }
-      .rsvp-btn {
+      .action-area {
+        flex-direction: column;
+        align-items: center;
+      }
+      .btn-secondary {
         width: 100%;
         justify-content: center;
       }
     }
 
-    @media screen and (max-width: 450px) {
-      .wedding-card {
-        border-radius: 1.8rem;
+    @media screen and (max-width: 400px) {
+      .invitation-header {
+        padding: 1.8rem 1rem;
       }
-      .wedding-hero {
-        border-radius: 1.8rem 1.8rem 0 0;
-        min-height: 240px;
-        padding: 1.5rem 1rem;
+      .invitation-header h1 {
+        font-size: 1.8rem;
       }
-      .hero-content h1 {
-        font-size: 2.2rem;
-      }
-      .wedding-details {
-        padding: 1.8rem 1.2rem;
-      }
-      .info-item {
-        gap: 0.8rem;
-      }
-      .info-icon {
-        width: 36px;
-        height: 36px;
-        font-size: 1rem;
-      }
-      .info-text .value {
-        font-size: 1rem;
+      .invitation-body .main-message {
+        font-size: 1.2rem;
       }
     }
 
-    /* small extras – happiness */
-    .wedding-hero .floating-heart {
-      position: absolute;
-      bottom: 20px;
-      right: 25px;
-      font-size: 1.8rem;
-      opacity: 0.2;
-      color: #b47b6b;
-      z-index: 1;
-      pointer-events: none;
+    /* điểm nhấn nhẹ cho thiệp */
+    .wedding-invitation:hover {
+      box-shadow: 0 30px 60px -10px rgba(80, 50, 40, 0.12);
     }
-    .wedding-hero .floating-heart i {
-      margin: 0 2px;
-    }
-
-    /* subtle animation */
-    .hero-content h1 {
-      transition: 0.2s;
-    }
-    .wedding-card:hover .hero-content h1 {
-      letter-spacing: 3px;
-    }
-
   </style>
 </head>
 <body>
 
-<div class="wedding-card">
-  <div class="wedding-grid">
-    <!-- left: hero image + floral mood -->
-    <div class="wedding-hero">
-      <div class="floating-heart">
-        <i class="fas fa-heart"></i>
-        <i class="fas fa-heart" style="font-size:1.2rem;"></i>
-      </div>
-      <div class="hero-content">
-        <span class="flower-icon">
-          <i class="fas fa-seedling"></i>
-          <i class="fas fa-leaf" style="margin-left: 4px;"></i>
-        </span>
-        <h1>Happily<br>Ever After</h1>
-        <div class="sub-title">save the date</div>
-        <div class="date-badge">
-          <i class="fas fa-calendar-alt"></i> 12 . 06 . 2026
-        </div>
-        <!-- tiny detail -->
-        <div style="margin-top: 1.2rem; font-size: 0.7rem; letter-spacing: 2px; opacity: 0.6; color: #604b45;">
-          <i class="fas fa-rings" style="margin-right: 4px;"></i> love · laughter · forever
-        </div>
-      </div>
+<div class="wedding-invitation">
+  <!-- header: tên cô dâu chú rể -->
+  <div class="invitation-header">
+    <div class="status-badge">
+      <i class="fas fa-rings"></i> Save the date
+    </div>
+    <h1>Đỗ Quang Đức <span>&</span> Nguyễn Anh Thư</h1>
+    <div class="sub-flowers">
+      <i class="fas fa-seedling"></i>
+      <i class="fas fa-leaf"></i>
+      <i class="fas fa-seedling"></i>
+    </div>
+  </div>
+
+  <!-- body: thông điệp chính + tên khách + trạng thái -->
+  <div class="invitation-body">
+    <span class="heart-icon">
+      <i class="fas fa-heart"></i>
+      <i class="fas fa-heart" style="font-size:2.4rem;"></i>
+      <i class="fas fa-heart"></i>
+    </span>
+
+    <div class="main-message">
+      <strong>Hạnh phúc</strong> &amp; <strong>yêu thương</strong>
+    </div>
+    <div class="sub-message">
+      <i class="fas fa-feather"></i>  cùng gia đình và bạn bè  <i class="fas fa-feather"></i>
     </div>
 
-    <!-- right: details & UI -->
-    <div class="wedding-details">
-      <div class="details-header">
-        <div class="tag"><i class="fas fa-sparkles" style="margin-right: 5px;"></i> wedding 2026</div>
-        <h2>Emma &amp; <span>James</span></h2>
-        <p style="color: #7c615a; margin-top: 0.3rem; font-weight: 300; letter-spacing: 0.3px;">
-          together with their families
-        </p>
-      </div>
+    <!-- Tên khách (lấy từ URL: guest=Bạn Ái) -->
+    <div class="guest-name">
+      <i class="fas fa-user-astronaut"></i> Bạn Ái <i class="fas fa-user-astronaut"></i>
+    </div>
 
-      <!-- info list -->
-      <div class="info-grid">
-        <div class="info-item">
-          <div class="info-icon"><i class="fas fa-calendar-day"></i></div>
-          <div class="info-text">
-            <div class="label">date &amp; time</div>
-            <div class="value"><i class="far fa-clock"></i> Saturday, June 12 · 4:30 PM</div>
-          </div>
-        </div>
-        <div class="info-item">
-          <div class="info-icon"><i class="fas fa-location-dot"></i></div>
-          <div class="info-text">
-            <div class="label">ceremony &amp; reception</div>
-            <div class="value"><i class="fas fa-tree"></i> The Willow Estate · Lakeview</div>
-          </div>
-        </div>
-        <div class="info-item">
-          <div class="info-icon"><i class="fas fa-dress"></i></div>
-          <div class="info-text">
-            <div class="label">dress code</div>
-            <div class="value"><i class="fas fa-suitcase"></i> Garden formal · pastel tones</div>
-          </div>
-        </div>
-      </div>
+    <!-- trạng thái "đang chuẩn bị thiệp" giống web mẫu -->
+    <div class="preparing-status">
+      <span class="label">
+        <i class="fas fa-envelope"></i> Đang chuẩn bị thiệp mời cho bạn...
+      </span>
+      <span class="spinner">
+        <i class="fas fa-circle"></i>
+        <i class="fas fa-circle"></i>
+        <i class="fas fa-circle"></i>
+      </span>
+    </div>
 
-      <!-- rsvp & extra -->
-      <div class="rsvp-area">
-        <button class="rsvp-btn">
-          <span>RSVP now</span>
-          <i class="fas fa-arrow-right"></i>
-        </button>
-        <span class="rsvp-note">
-          <i class="fas fa-check-circle"></i> 126 guests · 18 pending
-        </span>
-      </div>
+    <!-- thông tin bổ sung (giữ phong cách) -->
+    <div style="margin: 0.8rem 0 0.2rem; font-size: 0.85rem; color: #886b63; letter-spacing: 0.5px;">
+      <i class="far fa-calendar-alt" style="margin-right: 6px;"></i> 
+      12 · 06 · 2026
+      <span style="margin: 0 12px; opacity:0.3;">|</span>
+      <i class="fas fa-location-dot" style="margin-right: 6px;"></i> 
+      The Willow Estate
+    </div>
 
-      <!-- small extra touch: happy wedding -->
-      <div style="margin-top: 2.2rem; display: flex; justify-content: flex-end; border-top: 1px solid #f3e7e3; padding-top: 1rem;">
-        <span style="font-size: 0.75rem; color: #b39388; letter-spacing: 1.5px; display: flex; align-items: center; gap: 6px;">
-          <i class="fas fa-heart" style="color: #d48c7c;"></i>
-          happy wedding
-          <i class="fas fa-heart" style="color: #d48c7c;"></i>
-        </span>
+    <!-- nút hành động (mang tính trang trí) -->
+    <div class="action-area">
+      <div class="btn-secondary">
+        <i class="fas fa-check-circle"></i> Xác nhận tham dự
+      </div>
+      <div class="btn-secondary">
+        <i class="fas fa-gift"></i> Gửi lời chúc
       </div>
     </div>
   </div>
+
+  <!-- footer nhỏ -->
+  <div class="invitation-footer">
+    <i class="fas fa-heart"></i> 
+    happy wedding · Đỗ Quang Đức & Nguyễn Anh Thư 
+    <i class="fas fa-heart"></i>
+  </div>
 </div>
 
-<!-- (optional) tiny extra: no js needed, pure ui design -->
 </body>
 </html>
