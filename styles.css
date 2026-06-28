@@ -152,6 +152,13 @@ a {
   font-size: 0.95rem;
 }
 
+.hero-actions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -162,6 +169,31 @@ a {
   cursor: pointer;
   font-weight: 600;
   letter-spacing: 0.04em;
+}
+
+.btn-music {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.28);
+  gap: 0.6rem;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn-music i {
+  color: #ffdde7;
+}
+
+.btn-music.playing {
+  background: rgba(255, 255, 255, 0.9);
+  color: #33241f;
+}
+
+.btn-music.playing i {
+  color: #c75f69;
+}
+
+.btn-music:hover {
+  transform: translateY(-2px);
 }
 
 .btn-primary {

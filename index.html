@@ -22,14 +22,19 @@
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <p class="hero-label">Trân trọng kính mời</p>
-      <h1>Đỗ Quang Đức <span>&amp;</span> Nguyễn Anh Thư</h1>
+      <h1>Đồng Xuân Danh <span>&amp;</span> Dương Đoàn Thuý An</h1>
       <p class="hero-guest" id="heroGuest">Bạn Ái</p>
       <div class="hero-meta">
         <span>Nhà gái • 04.07.2026</span>
         <span>Nhà trai • 11.07.2026</span>
       </div>
-      <a href="#wishes" class="btn btn-primary">Gửi lời chúc</a>
+      <div class="hero-actions">
+        <button class="btn btn-primary" id="guestWishBtn">Gửi lời chúc</button>
+        <button class="btn btn-music" id="musicToggle" aria-label="Play wedding music">
+          <i class="fas fa-heart"></i>
+          <span>Nhạc cưới</span>
+        </button>
+      </div>
     </div>
   </section>
 
@@ -90,12 +95,45 @@
     <p>Đỗ Quang Đức &amp; Nguyễn Anh Thư • 2026</p>
   </footer>
 
+  <audio id="weddingMusic" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" preload="none"></audio>
+
   <script>
     const params = new URLSearchParams(window.location.search);
     const guest = params.get('guest');
     const heroGuest = document.getElementById('heroGuest');
     if (guest && heroGuest) {
       heroGuest.textContent = decodeURIComponent(guest);
+    }
+
+    const musicToggle = document.getElementById('musicToggle');
+    const weddingMusic = document.getElementById('weddingMusic');
+    const guestWishBtn = document.getElementById('guestWishBtn');
+
+    if (musicToggle && weddingMusic) {
+      musicToggle.addEventListener('click', () => {
+        if (weddingMusic.paused) {
+          weddingMusic.play().catch(() => {
+            // Autoplay may be blocked until first user interaction, but click already counts.
+          });
+          musicToggle.classList.add('playing');
+          musicToggle.setAttribute('aria-label', 'Pause wedding music');
+        } else {
+          weddingMusic.pause();
+          musicToggle.classList.remove('playing');
+          musicToggle.setAttribute('aria-label', 'Play wedding music');
+        }
+      });
+
+      weddingMusic.addEventListener('ended', () => {
+        musicToggle.classList.remove('playing');
+        musicToggle.setAttribute('aria-label', 'Play wedding music');
+      });
+    }
+
+    if (guestWishBtn) {
+      guestWishBtn.addEventListener('click', () => {
+        document.getElementById('wishes').scrollIntoView({ behavior: 'smooth' });
+      });
     }
   </script>
 </body>
