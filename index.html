@@ -4,137 +4,296 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Đỗ Quang Đức & Nguyễn Anh Thư</title>
+  <meta name="description" content="Trân trọng kính mời bạn đến tham dự lễ cưới của Đức & Thư">
+  <meta property="og:image" content="https://res.cloudinary.com/djrwanubz/image/upload/v1782199922/706c253cdaee5bb002ff_2_tmr6ch.jpg">
+  <link rel="preconnect" href="https://res.cloudinary.com">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+  <div class="invite-door" id="inviteDoor">
+    <p>TRÂN TRỌNG KÍNH MỜI</p>
+    <h1 id="doorGuest">Bạn Ái</h1>
+    <button class="envelope" id="openInvite" aria-label="Mở thiệp mời">
+      <img src="https://res.cloudinary.com/dsdtqkkbm/image/upload/v1778762980/Screenshot_2026-05-14_194831_mqb3b6.png" alt="Phong bì thiệp mời">
+      <span>Chạm để mở thiệp</span>
+    </button>
+    <div class="door-couple">Đức & Thư</div>
+  </div>
+
   <header class="site-header">
-    <div class="nav-inner">
+    <nav class="nav-inner" aria-label="Điều hướng">
       <a href="#story">Câu chuyện</a>
       <a href="#schedule">Lịch trình</a>
       <a href="#hero" class="logo">Đ &amp; T</a>
-      <a href="#album">Album</a>
-      <a href="#wishes">Gửi lời chúc</a>
-    </div>
+      <a href="#gallery">Album</a>
+      <a href="#wishes">Lời chúc</a>
+    </nav>
   </header>
 
   <section class="hero" id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
+    <img class="hero-image" src="https://res.cloudinary.com/djrwanubz/image/upload/v1782200064/Untitled_design_1_dxbpme.png" alt="Đức và Thư">
+    <div class="hero-shade"></div>
     <div class="hero-content">
-      <h1>Đồng Xuân Danh <span>&amp;</span> Dương Đoàn Thuý An</h1>
-    
-      <div class="hero-meta">
+      <p class="eyebrow">Wedding Invitation</p>
+      <h1><span>Đỗ Quang Đức</span><em>&amp;</em><span>Nguyễn Anh Thư</span></h1>
+      <div class="hero-line"></div>
+      <p class="guest-line">Trân trọng kính mời <strong id="guestName">Bạn Ái</strong> đến chung vui</p>
+      <div class="date-stack">
         <span>Nhà gái • 04.07.2026</span>
         <span>Nhà trai • 11.07.2026</span>
       </div>
       <div class="hero-actions">
-        <button class="btn btn-primary" id="guestWishBtn">Gửi lời chúc</button>
-        <button class="btn btn-music" id="musicToggle" aria-label="Play wedding music">
-          <i class="fas fa-heart"></i>
-          <span>Phát nhạc cưới</span>
-        </button>
+        <a class="btn primary" href="#schedule">Xem lịch trình</a>
+        <button class="btn ghost" id="musicToggle" type="button">Bật nhạc</button>
       </div>
     </div>
   </section>
 
   <main>
-    <section class="section" id="story">
-      <div class="section-head">
-        <p>Câu chuyện</p>
-        <h2>Hành trình yêu thương</h2>
+    <section class="section intro" id="story">
+      <div class="section-title">
+        <p>Câu chuyện của chúng tôi</p>
+        <h2>Hành trình tình yêu</h2>
       </div>
-      <p class="section-text">Bắt đầu từ một buổi chiều bình yên, chúng mình đã nắm tay nhau và cùng tạo nên những kỷ niệm đong đầy. Chúng mình mong được đón bạn đến chung vui và viết tiếp chương mới.</p>
+      <div class="story-layout">
+        <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782195752/c028848a7058f106a84926_wa6vja.jpg" alt="Khoảnh khắc của Đức và Thư">
+        <div class="story-list">
+          <article>
+            <h3>Lần Đầu Gặp Gỡ</h3>
+            <p>Chúng mình gặp nhau lần đầu tại Học viện Tư pháp. Không chỉ học chung lớp, chúng mình còn chung một nhóm học tập. Từ đó, những buổi học cuối tuần bỗng trở nên đáng mong chờ hơn bao giờ hết.</p>
+          </article>
+          <article>
+            <h3>Lời Tỏ Tình</h3>
+            <p>Vào ngày đầu tiên của năm mới, giữa những màn pháo hoa rực rỡ, anh đã ngỏ lời yêu.</p>
+          </article>
+          <article>
+            <h3>Lời Cầu Hôn</h3>
+            <p>Sau những tháng ngày đồng hành cùng nhau, trong một buổi tối lãng mạn trên du thuyền, anh đã trao lời cầu hôn, mở ra một hành trình mới cho cả hai.</p>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <section class="section section-schedule" id="schedule">
-      <div class="section-head">
+    <section class="section couple">
+      <div class="section-title">
+        <p>Chú rể & cô dâu</p>
+        <h2>Đôi nét về chúng tôi</h2>
+      </div>
+      <div class="couple-grid">
+        <article>
+          <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782197323/0251a8c9571bd6458f0a83_gvsl7k.jpg" alt="Chú rể Đỗ Quang Đức">
+          <p>Trưởng nam</p>
+          <h3>Đỗ Quang Đức</h3>
+          <span>Con ông Đỗ Mạnh Hà và bà Nguyễn Thị Nhung</span>
+        </article>
+        <article>
+          <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782197324/8dac773688e409ba50f584_xqlgys.jpg" alt="Cô dâu Nguyễn Anh Thư">
+          <p>Út nữ</p>
+          <h3>Nguyễn Anh Thư</h3>
+          <span>Con ông Nguyễn Đình Anh và bà Nguyễn Thị Băng Phương</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section schedule" id="schedule">
+      <div class="section-title">
         <p>Lịch trình</p>
-        <h2>Ngày vui hai nhà</h2>
+        <h2>Ngày trọng đại</h2>
       </div>
-      <div class="cards-grid">
-        <article class="event-card">
-          <h3>Nhà gái</h3>
-          <p class="event-date">04.07.2026</p>
-          <p>Địa điểm: Nhà gái</p>
+      <div class="event-grid">
+        <article>
+          <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782195746/6f755102a4d0258e7cc127_l0yho9.jpg" alt="Lễ Vu Quy">
+          <div>
+            <span>04.07.2026 | 9:15</span>
+            <h3>Lễ Vu Quy</h3>
+            <p>Tại nhà gái</p>
+          </div>
         </article>
-        <article class="event-card">
-          <h3>Nhà trai</h3>
-          <p class="event-date">11.07.2026</p>
-          <p>Địa điểm: Nhà trai</p>
+        <article>
+          <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782195755/11a54a1ebecc3f9266dd20_zhds5s.jpg" alt="Tiệc cưới nhà gái">
+          <div>
+            <span>04.07.2026 | 17:00</span>
+            <h3>Tiệc Cưới Nhà Gái</h3>
+            <p>Sala TuyHoa Beach Club, 02 Độc Lập, phường Tuy Hòa, tỉnh Đắk Lắk</p>
+            <a href="https://maps.app.goo.gl/m81m2dZTn2cj4pqW9" target="_blank" rel="noreferrer">Chỉ đường</a>
+          </div>
+        </article>
+        <article>
+          <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782195750/a412b66643b4c2ea9ba525_mv1qud.jpg" alt="Lễ Thành Hôn">
+          <div>
+            <span>09.07.2026 | 9:15</span>
+            <h3>Lễ Thành Hôn</h3>
+            <p>Tại nhà trai</p>
+          </div>
+        </article>
+        <article>
+          <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782195749/7513a06255b0d4ee8da137_apk74x.jpg" alt="Tiệc cưới nhà trai">
+          <div>
+            <span>11.07.2026 | 11:00</span>
+            <h3>Tiệc Cưới Nhà Trai</h3>
+            <p>Nhà hàng Ngọc Thông, thôn 11, xã Đắk Mil, tỉnh Lâm Đồng</p>
+            <a href="https://maps.app.goo.gl/1j1KJDCvGAVYKu2m7" target="_blank" rel="noreferrer">Chỉ đường</a>
+          </div>
         </article>
       </div>
     </section>
 
-    <section class="section section-album" id="album">
-      <div class="section-head">
-        <p>Album</p>
-        <h2>Khoảnh khắc lãng mạn</h2>
+    <section class="countdown section">
+      <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782195758/d9f1b9844c56cd08944736_rfiw9d.jpg" alt="Ảnh đếm ngược ngày cưới">
+      <div>
+        <p>Đếm ngược đến ngày cưới</p>
+        <h2 id="countdownText">Đang tính...</h2>
+        <span>Đắk Lắk - Lâm Đồng, Việt Nam</span>
+      </div>
+    </section>
+
+    <section class="section gallery" id="gallery">
+      <div class="section-title">
+        <p>Album ảnh cưới</p>
+        <h2>Khoảnh khắc yêu thương</h2>
+      </div>
+      <div class="landscape-row">
+        <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782203714/%E1%BA%A2nh_ngang_y9iopi.jpg" alt="Ảnh cưới ngang 1">
+        <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782203714/1_tojhfg.jpg" alt="Ảnh cưới ngang 2">
+        <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782203713/15_morzoi.jpg" alt="Ảnh cưới ngang 3">
       </div>
       <div class="photo-grid">
-        <div class="photo photo-1"></div>
-        <div class="photo photo-2"></div>
-        <div class="photo photo-3"></div>
+        <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782195747/87b790c36511e44fbd0028_kff2wu.jpg" alt="Ảnh cưới 1">
+        <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782195748/782d83977745f61baf5421_swchcb.jpg" alt="Ảnh cưới 2">
+        <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782195745/06abed0e19dc9882c1cd22_fjmsrw.jpg" alt="Ảnh cưới 3">
+        <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782195747/771cee601bb29aecc3a331_zv2e5m.jpg" alt="Ảnh cưới 4">
+        <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782195754/8bd182bf776df633af7c38_jcw9rt.jpg" alt="Ảnh cưới 5">
+        <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782195753/eadbfab10f638e3dd77240_wnsz9o.jpg" alt="Ảnh cưới 6">
+        <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782195751/b54f85c77115f04ba90429_v43n3d.jpg" alt="Ảnh cưới 7">
+        <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782195749/a4c76349979b16c54f8a30_axkrzp.jpg" alt="Ảnh cưới 8">
+        <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782195745/fd71fb1f0ecd8f93d6dc39_hagxwk.jpg" alt="Ảnh cưới 9">
+        <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782195758/d9f1b9844c56cd08944736_rfiw9d.jpg" alt="Ảnh cưới hoa 1">
+        <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782195757/529712ede73f66613f2e35_ffoqtj.jpg" alt="Ảnh cưới hoa 2">
+        <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782195746/32a126d5d30752590b1634_jzuaws.jpg" alt="Ảnh cưới hoa 3">
       </div>
     </section>
 
-    <section class="section section-wishes" id="wishes">
-      <div class="section-head">
-        <p>Gửi lời chúc</p>
-        <h2>Chia sẻ yêu thương</h2>
-      </div>
+    <section class="section wishes" id="wishes">
+      <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782195747/771cee601bb29aecc3a331_zv2e5m.jpg" alt="Ảnh lời chúc">
       <form class="wish-form">
-        <input type="text" id="guest" placeholder="Tên bạn" />
-        <textarea id="message" rows="5" placeholder="Lời chúc dành cho hai bạn..."></textarea>
-        <button class="btn btn-primary" type="submit">Gửi lời chúc</button>
+        <div class="section-title">
+          <p>Gửi lời chúc</p>
+          <h2>Nhắn gửi yêu thương</h2>
+        </div>
+        <input id="wishName" type="text" placeholder="Tên của bạn">
+        <textarea id="wishMessage" rows="5" placeholder="Viết vài lời chúc thật dễ thương cho cô dâu, chú rể..."></textarea>
+        <select id="attending">
+          <option value="">Bạn có thể tham dự không?</option>
+          <option>Chắc chắn rồi, mình sẽ đến</option>
+          <option>Mình sẽ cố gắng sắp xếp</option>
+          <option>Rất tiếc mình không thể tham dự</option>
+        </select>
+        <button class="btn primary" type="submit">Gửi lời chúc</button>
+        <p class="form-note" id="formNote"></p>
       </form>
+    </section>
+
+    <section class="section gift">
+      <div class="section-title">
+        <p>Mừng cưới</p>
+        <h2>Thông tin chuyển khoản</h2>
+      </div>
+      <div class="gift-grid">
+        <article>
+          <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782198321/Screenshot_2026-06-23_140423_bs4ssl.png" alt="QR VP Bank Nguyễn Anh Thư">
+          <h3>VP Bank</h3>
+          <p>NGUYEN ANH THU</p>
+          <span>108621042000</span>
+        </article>
+        <article>
+          <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782198321/Screenshot_2026-06-23_140501_kdkjhe.png" alt="QR MSB Đỗ Quang Đức">
+          <h3>MSB</h3>
+          <p>DO QUANG DUC</p>
+          <span>4815061999</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="thank-you">
+      <img src="https://res.cloudinary.com/djrwanubz/image/upload/v1782195755/11a54a1ebecc3f9266dd20_zhds5s.jpg" alt="Ảnh cảm ơn">
+      <div>
+        <p>Thank you</p>
+        <h2>Hẹn gặp bạn trong ngày đặc biệt</h2>
+        <span>Đỗ Quang Đức & Nguyễn Anh Thư</span>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>Đồng Xuân Danh &amp; Dương Đoàn Thuý An • 2026</p>
+    <p>Đức & Thư Wedding • 2026</p>
   </footer>
 
-  <audio id="weddingMusic" src="https://a01.nct.vn/Sony_Audio91/MyLove-Westlife-6893976_hq.mp3" preload="none"></audio>
+  <audio id="weddingMusic" preload="none"></audio>
 
   <script>
+    const playlist = [
+      'https://res.cloudinary.com/dsdtqkkbm/video/upload/v1781514712/4_Christina_Perri_-_A_Thousand_Years_Official_Music_Video_-_YouTube_mp3cut.net_fk8mhf.mp3',
+      'https://res.cloudinary.com/djrwanubz/video/upload/v1782200688/10_Stephen_Sanchez_-_Until_I_Found_You_Official_Video_-_YouTube_mp3cut.net_oz31ev.mp3',
+      'https://res.cloudinary.com/djrwanubz/video/upload/v1782200688/10_Calum_Scott_-_You_Are_The_Reason_Official_Video_-_YouTube_mp3cut.net_qrzxh9.mp3'
+    ];
+
     const params = new URLSearchParams(window.location.search);
-    const guest = params.get('guest');
-    const heroGuest = document.getElementById('heroGuest');
-    if (guest && heroGuest) {
-      heroGuest.textContent = decodeURIComponent(guest);
-    }
+    const guest = params.get('guest') || 'Bạn Ái';
+    document.getElementById('guestName').textContent = guest;
+    document.getElementById('doorGuest').textContent = guest;
+    document.getElementById('wishName').value = guest;
 
+    const door = document.getElementById('inviteDoor');
+    document.getElementById('openInvite').addEventListener('click', () => {
+      door.classList.add('is-open');
+      document.body.classList.add('invitation-opened');
+      setTimeout(() => door.remove(), 900);
+    });
+
+    let trackIndex = 0;
+    const audio = document.getElementById('weddingMusic');
     const musicToggle = document.getElementById('musicToggle');
-    const weddingMusic = document.getElementById('weddingMusic');
-    const guestWishBtn = document.getElementById('guestWishBtn');
+    audio.src = playlist[trackIndex];
 
-    if (musicToggle && weddingMusic) {
-      musicToggle.addEventListener('click', () => {
-        if (weddingMusic.paused) {
-          weddingMusic.play().catch(() => {
-            // Autoplay may be blocked until first user interaction, but click already counts.
-          });
-          musicToggle.classList.add('playing');
-          musicToggle.setAttribute('aria-label', 'Pause wedding music');
-        } else {
-          weddingMusic.pause();
-          musicToggle.classList.remove('playing');
-          musicToggle.setAttribute('aria-label', 'Play wedding music');
-        }
-      });
+    musicToggle.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        musicToggle.textContent = 'Đang phát nhạc';
+      } else {
+        audio.pause();
+        musicToggle.textContent = 'Bật nhạc';
+      }
+    });
 
-      weddingMusic.addEventListener('ended', () => {
-        musicToggle.classList.remove('playing');
-        musicToggle.setAttribute('aria-label', 'Play wedding music');
-      });
+    audio.addEventListener('ended', () => {
+      trackIndex = (trackIndex + 1) % playlist.length;
+      audio.src = playlist[trackIndex];
+      audio.play();
+    });
+
+    function updateCountdown() {
+      const target = new Date('2026-07-11T11:00:00+07:00').getTime();
+      const diff = target - Date.now();
+      const text = document.getElementById('countdownText');
+      if (diff <= 0) {
+        text.textContent = 'Ngày vui đã đến';
+        return;
+      }
+      const days = Math.floor(diff / 86400000);
+      const hours = Math.floor((diff % 86400000) / 3600000);
+      const minutes = Math.floor((diff % 3600000) / 60000);
+      text.textContent = `${days} ngày ${hours} giờ ${minutes} phút`;
     }
 
-    if (guestWishBtn) {
-      guestWishBtn.addEventListener('click', () => {
-        document.getElementById('wishes').scrollIntoView({ behavior: 'smooth' });
-      });
-    }
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
+
+    document.querySelector('.wish-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const note = document.getElementById('formNote');
+      note.textContent = 'Cảm ơn bạn rất nhiều. Lời chúc của bạn là niềm hạnh phúc của chúng tôi.';
+      event.currentTarget.reset();
+    });
   </script>
 </body>
 </html>
