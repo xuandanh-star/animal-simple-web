@@ -58,7 +58,7 @@ select {
   padding: 28px;
   background:
     linear-gradient(rgba(251, 247, 239, 0.86), rgba(251, 247, 239, 0.96)),
-    url('https://res.cloudinary.com/djrwanubz/image/upload/v1782199922/706c253cdaee5bb002ff_2_tmr6ch.jpg') center/cover;
+    url('anh_cuoi5.jpeg') center/cover;
   text-align: center;
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
