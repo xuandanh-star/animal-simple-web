@@ -58,7 +58,7 @@ select {
   padding: 28px;
   background:
     linear-gradient(rgba(251, 247, 239, 0.86), rgba(251, 247, 239, 0.96)),
-    url('anh_cuoi_05.jpg') center/cover;
+    url('anh_cuoi_01.jpg') center/cover;
   text-align: center;
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
