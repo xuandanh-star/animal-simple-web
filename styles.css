@@ -225,6 +225,7 @@ select {
 
 .hero-image {
   object-fit: cover;
+  object-position: center top;
   animation: slowZoom 8s ease-out both;
 }
 
@@ -626,6 +627,7 @@ main {
 
 .landscape-row img {
   height: clamp(210px, 28vw, 360px);
+  object-position: center top;
 }
 
 .photo-grid {
@@ -713,6 +715,14 @@ main {
 }
 
 @media (max-width: 820px) {
+  .hero-image {
+    object-position: center top;
+  }
+
+  .landscape-row img:first-child {
+    object-position: center top;
+  }
+
   .menu-toggle {
     display: flex;
   }
