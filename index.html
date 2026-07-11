@@ -34,23 +34,19 @@
     <div class="hero-shade"></div>
     <div class="hero-content">
       <p class="eyebrow">Wedding Invitation</p>
-      <h1><span>Đồng Xuân Danh</span><em>&amp;</em><span>Dương Đoàn Thuý An</span></h1>
+      <h1><span>Xuân Danh</span><em>&amp;</em><span>Thuý An</span></h1>
       <div class="hero-line"></div>
       <p class="guest-line">Trân trọng kính mời <strong id="guestName">Bạn Ái</strong> đến chung vui</p>
       <div class="date-stack">
         <span>Nhà gái • 30.07.2026</span>
         <span>Nhà trai • 19.01.2027</span>
       </div>
-      <div class="hero-actions">
-        <a class="btn primary" href="#schedule">Xem lịch trình</a>
-        <button class="btn ghost" id="musicToggle" type="button">Play Music</button>
-      </div>
     </div>
   </section>
 
   <main>
     <section class="section video-section" aria-label="Video cưới">
-      <video class="wedding-video" controls playsinline preload="metadata" poster="anh_cuoi_01.jpg">
+      <video id="weddingVideo" class="wedding-video" controls playsinline muted preload="metadata" poster="anh_cuoi_01.jpg">
         <source src="video_cuoi.mp4" type="video/mp4">
         Trình duyệt của bạn không hỗ trợ video.
       </video>
@@ -208,6 +204,9 @@
     <p>Danh & An Wedding • 2026</p>
   </footer>
 
+  <audio id="inviteSound" preload="auto">
+    <source src="Lễ%20Đường.mp3" type="audio/mpeg">
+  </audio>
   <audio id="weddingMusic" preload="none"></audio>
 
   <script>
@@ -224,9 +223,29 @@
     document.getElementById('wishName').value = guest;
 
     const door = document.getElementById('inviteDoor');
+    const inviteSound = document.getElementById('inviteSound');
+    const weddingVideo = document.getElementById('weddingVideo');
+    const videoSection = document.querySelector('.video-section');
+
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          weddingVideo.play().catch(() => {});
+        } else {
+          weddingVideo.pause();
+        }
+      });
+    }, { threshold: 0.4 });
+
+    if (videoSection) {
+      videoObserver.observe(videoSection);
+    }
+
     document.getElementById('openInvite').addEventListener('click', () => {
       door.classList.add('is-open');
       document.body.classList.add('invitation-opened');
+      inviteSound.currentTime = 0;
+      inviteSound.play().catch(() => {});
       setTimeout(() => door.remove(), 900);
     });
 
