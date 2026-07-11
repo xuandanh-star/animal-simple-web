@@ -20,14 +20,19 @@
   </div>
 
   <header class="site-header">
-    <nav class="nav-inner" aria-label="Điều hướng">
-      <a href="#story">Câu chuyện</a>
-      <a href="#schedule">Lịch trình</a>
-      <a href="#hero" class="logo">D &amp; A</a>
-      <a href="#gallery">Album</a>
-      <a href="#wishes">Lời chúc</a>
-      <a href="#wishes" id = "backHomeBtn">Đóng thiệp</a>
-    </nav>
+    <div class="nav-shell">
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Mở menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-inner" id="mainNav" aria-label="Điều hướng">
+        <a href="#story">Câu chuyện</a>
+        <a href="#schedule">Lịch trình</a>
+        <a href="#hero" class="logo">D &amp; A</a>
+        <a href="#gallery">Album</a>
+        <a href="#wishes">Lời chúc</a>
+        <a href="#wishes" id="backHomeBtn">Đóng thiệp</a>
+      </nav>
+    </div>
   </header>
 
   <section class="hero" id="hero">
@@ -224,6 +229,22 @@
     const videoSection = document.querySelector('.video-section');
     const revealImages = document.querySelectorAll('main img');
     const backHomeBtn = document.getElementById('backHomeBtn');
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+
+    if (menuToggle && mainNav) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = mainNav.classList.toggle('is-open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      mainNav.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          mainNav.classList.remove('is-open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
 
     revealImages.forEach((image) => {
       image.classList.add('reveal-image');
