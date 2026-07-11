@@ -55,10 +55,7 @@ select {
   place-items: center;
   align-content: center;
   gap: 24px;
-  padding: 28px;
-  background:
-    linear-gradient(rgba(251, 247, 239, 0.86), rgba(251, 247, 239, 0.96)),
-    url('anh_cuoi_01.jpg') center/cover;
+  background-image: linear-gradient(10deg, rgba(251, 247, 239, 0.92), rgba(251, 247, 239, 0.92)), url('anh_cuoi_01.jpg');
   text-align: center;
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
