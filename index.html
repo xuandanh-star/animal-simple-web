@@ -127,9 +127,8 @@
     <section class="countdown section">
       <img src="anh_cuoi_05.jpg" alt="Ảnh đếm ngược ngày cưới">
       <div>
-        <p>Đếm ngược đến ngày cưới</p>
+        <p>Đếm ngược đến buổi tiệc nhé!</p>
         <h2 id="countdownText">Đang tính...</h2>
-        <span>Đồng Tháp - Gia Lai, Việt Nam</span>
       </div>
     </section>
 
@@ -185,6 +184,10 @@
   </main>
 
   <footer class="site-footer">
+    <div class="footer-countdown" aria-live="polite">
+      <span>Đếm ngược đến buổi tiệc nhé!</span>
+      <strong id="footerCountdownText">00:00:00:00</strong>
+    </div>
     <p>Danh & An Wedding • 2026</p>
   </footer>
 
@@ -341,21 +344,28 @@
     });
 
     function updateCountdown() {
-      const target = new Date('2026-07-11T11:00:00+07:00').getTime();
+      const target = new Date('2026-08-16T11:00:00+07:00').getTime();
       const diff = target - Date.now();
       const text = document.getElementById('countdownText');
+      const footerText = document.getElementById('footerCountdownText');
       if (diff <= 0) {
-        text.textContent = 'Ngày vui đã đến';
+        const doneText = '00:00:00:00';
+        text.textContent = doneText;
+        footerText.textContent = doneText;
         return;
       }
-      const days = Math.floor(diff / 86400000);
-      const hours = Math.floor((diff % 86400000) / 3600000);
-      const minutes = Math.floor((diff % 3600000) / 60000);
-      text.textContent = `${days} ngày ${hours} giờ ${minutes} phút`;
+      const totalSeconds = Math.floor(diff / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+      const value = `${String(days).padStart(2, '0')}:${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      text.textContent = value;
+      footerText.textContent = value;
     }
 
     updateCountdown();
-    setInterval(updateCountdown, 60000);
+    setInterval(updateCountdown, 1000);
 
     document.querySelector('.wish-form').addEventListener('submit', (event) => {
       event.preventDefault();
