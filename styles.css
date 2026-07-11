@@ -84,22 +84,44 @@ select {
 .invite-door h1 {
   margin: 0;
   font-family: "Alex Brush", cursive;
-  font-size: clamp(3.5rem, 11vw, 7rem);
-  font-weight: 400;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 300;
   line-height: 1;
+  margin-bottom: 64px;
 }
 
 .envelope {
-  width: min(420px, 84vw);
+  width: min(320px, 70vw);
+  height: min(300px, 70vw);
   border: 0;
   background: transparent;
   cursor: pointer;
   color: var(--ink);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
 }
 
 .envelope img {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  display: block;
+
   filter: drop-shadow(0 22px 30px rgba(50, 42, 30, 0.2));
   transition: transform 0.25s ease;
+}
+
+.envelope:hover img {
+  transform: scale(1.05);
+}
+
+.envelope span {
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .envelope:hover img {
@@ -313,7 +335,7 @@ main {
   align-items: center;
 }
 
-.story-layout > img {
+.story-layout>img {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
@@ -505,7 +527,7 @@ main {
   align-items: center;
 }
 
-.wishes > img {
+.wishes>img {
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
@@ -568,6 +590,7 @@ main {
   from {
     transform: scale(1.1);
   }
+
   to {
     transform: scale(1);
   }
