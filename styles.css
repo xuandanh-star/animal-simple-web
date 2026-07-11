@@ -370,6 +370,35 @@ main {
   text-align: center;
 }
 
+.story-title {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.25em;
+  overflow: hidden;
+}
+
+.story-title-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(0);
+  transition: transform 2s ease, opacity 2s ease;
+  will-change: transform, opacity;
+}
+
+.story-title-word.left {
+  transform: translateX(-80px);
+}
+
+.story-title-word.right {
+  transform: translateX(80px);
+}
+
+.story-title-word.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .section-title h2,
 .countdown h2,
 .thank-you h2 {
@@ -409,6 +438,28 @@ main {
 
 .story-list article {
   padding: 26px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform;
+}
+
+.story-list article.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.story-list article h3,
+.story-list article p {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.story-list article.is-visible h3,
+.story-list article.is-visible p {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .story-list h3,
@@ -466,6 +517,19 @@ main {
   display: grid;
   grid-template-columns: 42% 1fr;
   min-height: 250px;
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform;
+}
+
+.event-grid article.reveal-right {
+  transform: translateX(80px);
+}
+
+.event-grid article.is-visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .event-grid img {
