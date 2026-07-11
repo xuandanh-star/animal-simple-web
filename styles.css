@@ -638,7 +638,6 @@ main {
 }
 
 .wishes {
-  display: grid;
   grid-template-columns: minmax(0, 0.92fr) minmax(320px, 1fr);
   gap: clamp(26px, 5vw, 58px);
   align-items: center;
@@ -801,6 +800,7 @@ main {
   .wishes,
   .gift-grid {
     grid-template-columns: 1fr;
+    margin-top:-90px
   }
 
   .event-grid article {
