@@ -88,7 +88,7 @@ select {
   font-size: clamp(2.5rem, 8vw, 5rem);
   font-weight: 300;
   line-height: 1;
-  margin-bottom: 64px;
+  margin-bottom: 50px;
 }
 
 .envelope {
@@ -114,6 +114,7 @@ select {
 
   filter: drop-shadow(0 22px 30px rgba(50, 42, 30, 0.2));
   transition: transform 0.25s ease;
+  margin-top: 15px;
 }
 
 .envelope:hover img {
