@@ -315,6 +315,21 @@ main {
   padding: clamp(58px, 9vw, 104px) 0;
 }
 
+.video-section {
+  padding-top: clamp(24px, 5vw, 40px);
+  padding-bottom: clamp(16px, 4vw, 28px);
+}
+
+.wedding-video {
+  display: block;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 18px;
+  background: #000;
+  box-shadow: var(--shadow);
+}
+
 .section-title {
   margin-bottom: 42px;
   text-align: center;
