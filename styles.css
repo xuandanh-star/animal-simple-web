@@ -312,6 +312,18 @@ main {
   overflow: hidden;
 }
 
+.reveal-image {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 2s ease, transform 2s ease;
+  will-change: opacity, transform;
+}
+
+.reveal-image.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .section {
   width: min(1160px, calc(100% - 32px));
   margin: 0 auto;
