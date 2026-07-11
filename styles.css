@@ -190,6 +190,9 @@ select {
   place-items: center;
   overflow: hidden;
   color: #fff;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
 }
 
 .hero-image,
