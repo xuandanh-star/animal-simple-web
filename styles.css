@@ -615,7 +615,6 @@ main {
 
 .landscape-row {
   grid-template-columns: 1.3fr 1fr 1fr;
-  margin-bottom: 14px;
 }
 
 .landscape-row img,
