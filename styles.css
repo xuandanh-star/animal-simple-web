@@ -175,7 +175,6 @@ select {
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
-
 .nav-inner .logo {
   font-family: "Cormorant Garamond", serif;
   color: var(--gold);

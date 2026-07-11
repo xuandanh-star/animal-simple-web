@@ -26,6 +26,7 @@
       <a href="#hero" class="logo">D &amp; A</a>
       <a href="#gallery">Album</a>
       <a href="#wishes">Lời chúc</a>
+      <a href="#wishes" id = "backHomeBtn">Đóng thiệp</a>
     </nav>
   </header>
 
@@ -222,6 +223,7 @@
     const weddingVideo = document.getElementById('weddingVideo');
     const videoSection = document.querySelector('.video-section');
     const revealImages = document.querySelectorAll('main img');
+    const backHomeBtn = document.getElementById('backHomeBtn');
 
     revealImages.forEach((image) => {
       image.classList.add('reveal-image');
@@ -252,6 +254,12 @@
       videoObserver.observe(videoSection);
     }
 
+    if (backHomeBtn) {
+      backHomeBtn.addEventListener('click', () => {
+        window.location.href = window.location.pathname + window.location.search;
+      });
+    }
+
     document.getElementById('openInvite').addEventListener('click', () => {
       door.classList.add('is-open');
       document.body.classList.add('invitation-opened');
@@ -265,15 +273,17 @@
     const musicToggle = document.getElementById('musicToggle');
     audio.src = playlist[trackIndex];
 
-    musicToggle.addEventListener('click', () => {
-      if (audio.paused) {
-        audio.play();
-        musicToggle.textContent = 'Đang phát nhạc';
-      } else {
-        audio.pause();
-        musicToggle.textContent = 'Bật nhạc';
-      }
-    });
+    if (musicToggle) {
+      musicToggle.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play();
+          musicToggle.textContent = 'Đang phát nhạc';
+        } else {
+          audio.pause();
+          musicToggle.textContent = 'Bật nhạc';
+        }
+      });
+    }
 
     audio.addEventListener('ended', () => {
       trackIndex = (trackIndex + 1) % playlist.length;
